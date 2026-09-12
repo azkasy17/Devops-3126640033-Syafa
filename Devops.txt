@@ -1,0 +1,22 @@
+DevOps — 8 September 2026
+Peran IT dalam Bisnis
+
+Dalam bisnis, IT berperan sebagai support yang mendukung core business agar tujuan organisasi dapat tercapai. IT tidak hanya berfungsi sebagai pendukung operasional, tetapi juga membantu organisasi dalam mengelola proses bisnis, data, aplikasi, dan teknologi.
+
+Setiap organisasi umumnya memiliki rencana strategis bisnis yang disusun untuk jangka waktu tertentu, misalnya lima tahun, kemudian diturunkan menjadi rencana kerja tahunan. Dalam konteks IT, rencana tersebut dapat dituangkan ke dalam IT Master Plan yang menjadi pedoman dalam pengembangan dan pemanfaatan teknologi informasi di organisasi.
+
+Salah satu bagian penting dalam IT Master Plan adalah Enterprise Architecture (EA). Enterprise Architecture menggambarkan hubungan antara bisnis dengan teknologi yang digunakan untuk mendukung pencapaian tujuan organisasi. Secara umum, Enterprise Architecture terdiri dari:
+
+Business Architecture
+Menggambarkan proses bisnis, layanan, dan aktivitas organisasi yang memberikan value atau menghasilkan keuntungan. Proses bisnis dapat dimodelkan menggunakan DFD, Activity Diagram, dan Sequence Diagram.
+Data/Information Architecture
+Menggambarkan bagaimana data dan informasi dikelola dalam organisasi. Contohnya adalah ERD untuk menggambarkan hubungan antar-data dan metadata untuk memberikan informasi mengenai data.
+Application Architecture
+Menggambarkan aplikasi atau sistem informasi yang digunakan untuk mendukung proses bisnis dan pengelolaan data.
+Technology Architecture
+Menggambarkan teknologi dan infrastruktur yang digunakan untuk menjalankan aplikasi, seperti server, jaringan, sistem operasi, database, dan teknologi pendukung lainnya.
+DevOps
+
+DevOps adalah pendekatan yang mengintegrasikan proses Development (pengembangan) dan Operations (operasional) untuk meningkatkan kolaborasi dalam pengembangan, pengujian, deployment, dan pengelolaan aplikasi.
+
+DevOps bertujuan agar aplikasi dapat dikembangkan dan dirilis secara lebih cepat, berkelanjutan, stabil, dan reliable, sehingga mampu mendukung kebutuhan bisnis secara efektif. Dengan demikian, DevOps menjadi salah satu pendekatan yang membantu IT dalam memberikan layanan teknologi yang selaras dengan kebutuhan dan tujuan bisnis.
