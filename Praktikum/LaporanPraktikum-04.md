@@ -131,11 +131,12 @@ Gambar dari View Page Source juga menunjukkan bahwa halaman dapat ditampilkan me
 
 - [x] HTTPS port 8443 menampilkan halaman Apache.
 ![](../assets/prak4-31.jpg)
+![](../assets/prak4-32.jpg)
 
 PASS, karena akses HTTPS melalui port 8443 berhasil menampilkan halaman Apache di browser dan curl menghasilkan HTTP/1.1 200 OK. Hal ini membuktikan bahwa konfigurasi HTTPS, Nginx sebagai proxy, dan Apache sebagai web server telah berjalan dengan baik.
  
 - [x] /api/ menghasilkan JSON Flask.
-![](../assets/prak4-32.jpg)
+![](../assets/prak4-33.jpg)
 
 Hasil tersebut menunjukkan bahwa:
 - Request HTTPS berhasil diterima oleh Nginx.
@@ -148,7 +149,7 @@ Hasil tersebut menunjukkan bahwa:
 - [ ] TLS 1.2 atau TLS 1.3 berhasil dinegosiasikan.
 - [ ] Apache dan Flask tidak memiliki published port.
 - [x] Request tercatat pada access log Nginx.
-![](../assets/prak4-33.jpg)
+![](../assets/prak4-34.jpg)
 
 PASS, karena TLS 1.2 dan TLS 1.3 berhasil dinegosiasikan, port Apache dan Flask tidak dipublish langsung ke host, serta request berhasil tercatat pada access log Nginx. Hal ini menunjukkan bahwa arsitektur reverse proxy dan konfigurasi keamanan jaringan Docker telah berjalan sesuai rancangan. 
 
