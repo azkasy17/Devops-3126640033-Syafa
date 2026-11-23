@@ -1,21 +1,21 @@
 # Bab 3 — Docker Network, Volume, Bind Mount, tmpfs, dan Compose 
 ### 1. Struktur direktori umum Bab 3 
-![](../assets/prak3-1)
+![](../assets/prak3-1.jpg)
 ### 2. User-defined bridge network 
-![](../assets/prak3-1)
+![](../assets/prak3-2.jpg)
 ### 3. Volume backup dan restore 
 1.	Membuat volume 
-![](../assets/prak3-1)
+![](../assets/prak3-3.jpg)
 2.	Menjalankan container writer 
-![](../assets/prak3-1)
+![](../assets/prak3-4.jpg)
 3.	Menghapus container writer  
-![](../assets/prak3-1)
+![](../assets/prak3-5.jpg)
 4.	Membaca dan Membackup dari Volume 
-![](../assets/prak3-1)
+![](../assets/prak3-6.jpg)
 ### 4. Compose multi-container Nginx-Flask-PostgreSQL 
-![](../assets/prak3-1)
-![](../assets/prak3-1)
-![](../assets/prak3-1)
+![](../assets/prak3-7.jpg)
+![](../assets/prak3-8.jpg)
+![](../assets/prak3-9.jpg)
 
 ## Verifikasi dan Skenario Pengujian 
 - [x] Container di user-defined bridge dapat saling resolve menggunakan nama. 
