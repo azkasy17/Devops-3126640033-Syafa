@@ -2,10 +2,12 @@
 
 ### 1. Membuat direktori
 ![](../assets/prak4-1.jpg)
+
 Analisis: Pembuatan direktori tersebut bertujuan untuk memisahkan file konfigurasi, volume bind mount, dan laporan agar lebih rapi serta tidak tercampur dengan praktikum di bab lainnya. Di dalam direktori utamanya, terdapat folder spesifik seperti apache/sites untuk menyimpan file web statis dan nginx/conf sebagai tempat pengaturan konfigurasi reverse proxy. Anda juga membuat folder certs untuk menyimpan sertifikat TLS, serta logs/nginx agar catatan aktivitas dan error server bisa dibaca langsung dari komputer host. Terakhir, folder app disiapkan untuk menaruh kode sumber aplikasi backend, di mana pengelompokan semua folder ini akan sangat memudahkan proses pembersihan sistem setelah praktikum selesai.
 
 ### 2. Sertifikat TLS Laboratorium
 ![](../assets/prak4-2.jpg)
+
 Analisis: Perintah pada gambar tersebut dieksekusi untuk membuat sertifikat TLS self-signed menggunakan OpenSSL guna keperluan simulasi koneksi HTTPS di lingkungan praktikum. Proses ini menghasilkan kunci privat (lab.key) dan sertifikat publik (lab.crt) yang berlaku selama satu tahun, lalu menyimpannya ke dalam direktori certs. Setelah berkas terbentuk, perintah chmod digunakan untuk membatasi hak akses secara ketat, terutama pada kunci privat agar tidak dibaca oleh pengguna yang tidak berhak. Sertifikat buatan sendiri ini selanjutnya akan dipasang pada layanan reverse proxy Nginx untuk menangani proses terminasi enkripsi TLS sebelum meneruskan koneksi ke backend.
 
 ### 3. File compose.yaml
