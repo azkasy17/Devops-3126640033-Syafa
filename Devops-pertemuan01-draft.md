@@ -1,5 +1,4 @@
-Devops
-8 September 26
+# Devops - 8 September 26
 
 Dalam Business, it hanya sebagai support
 dokumen master plan IT
@@ -12,3 +11,4 @@ teknologi
 Devops adalah 
 
 Dalam bisnis, IT berperan sebagai support yang mendukung core business agar tujuan organisasi dapat tercapai. Di dalam bisnis terdapat rencana strategis yang umumnya dibuat untuk jangka waktu lima tahunan, kemudian diturunkan menjadi rencana kerja tahunan. Dalam konteks IT, rencana strategis tersebut menjadi IT Master Plan yang menjadi pedoman pengembangan dan pemanfaatan IT dalam organisasi. Di dalam IT Master Plan terdapat Enterprise Architecture yang mencakup Business Architecture, Data/Information Architecture, Application Architecture, dan Technology Architecture. Business Architecture menggambarkan proses bisnis dan layanan yang memberikan value atau menghasilkan profit, yang dapat dimodelkan menggunakan DFD, Activity Diagram, atau Sequence Diagram. Data/Information Architecture menggambarkan pengelolaan data dan informasi, misalnya melalui ERD, metadata. Application Architecture menggambarkan aplikasi yang digunakan untuk mendukung proses bisnis, sedangkan Technology Architecture menggambarkan teknologi dan infrastruktur yang digunakan untuk menjalankan aplikasi tersebut. Dengan demikian, DevOps merupakan pendekatan yang mengintegrasikan proses Development dan Operations untuk mengembangkan, melakukan deployment, serta mengoperasikan aplikasi secara cepat, berkelanjutan, dan reliable dalam rangka mendukung kebutuhan bisnis.
+
