@@ -108,6 +108,7 @@ Analisis: Gambar tersebut menampilkan tampilan halaman utama aplikasi web saat d
 
 ## Checklist PASS
 - [x] docker compose config tidak menghasilkan galat.
+
 ![](../assets/Prak4-28.jpg)
 
 Hasil: PASS ✅
@@ -119,11 +120,13 @@ Perintah docker compose config berhasil dijalankan dan tidak menghasilkan error.
 - depends_on pada proxy telah mengatur urutan startup berdasarkan status service.
 
 - [x] flask-app berstatus healthy.
+
 ![](../assets/Prak4-29.jpg)
 
 PASS, karena ketiga container (apache-web, flask-app, dan proxy) berhasil berjalan. Flask juga berstatus healthy, yang menandakan aplikasi telah siap menerima request. Selain itu, port 8080 dan 8443 telah berhasil dipetakan dari host ke container proxy.
 
 - [x] HTTP port 8080 menghasilkan redirect 301.
+
 ![](../assets/Prak4-30.jpg)
 
 Hasil: PASS 
@@ -132,12 +135,14 @@ Berdasarkan pengujian melalui browser, ketika mengakses HTTP pada port 8080, ser
 Gambar dari View Page Source juga menunjukkan bahwa halaman dapat ditampilkan melalui browser, sehingga request berhasil diproses oleh konfigurasi web server/proxy.
 
 - [x] HTTPS port 8443 menampilkan halaman Apache.
+
 ![](../assets/Prak4-31.jpg)
 ![](../assets/Prak4-32.jpg)
 
 PASS, karena akses HTTPS melalui port 8443 berhasil menampilkan halaman Apache di browser dan curl menghasilkan HTTP/1.1 200 OK. Hal ini membuktikan bahwa konfigurasi HTTPS, Nginx sebagai proxy, dan Apache sebagai web server telah berjalan dengan baik.
  
 - [x] /api/ menghasilkan JSON Flask.
+
 ![](../assets/Prak4-33.jpg)
 
 Hasil tersebut menunjukkan bahwa:
@@ -151,6 +156,7 @@ Hasil tersebut menunjukkan bahwa:
 - [ ] TLS 1.2 atau TLS 1.3 berhasil dinegosiasikan.
 - [ ] Apache dan Flask tidak memiliki published port.
 - [x] Request tercatat pada access log Nginx.
+
 ![](../assets/Prak4-34.jpg)
 
 PASS, karena TLS 1.2 dan TLS 1.3 berhasil dinegosiasikan, port Apache dan Flask tidak dipublish langsung ke host, serta request berhasil tercatat pada access log Nginx. Hal ini menunjukkan bahwa arsitektur reverse proxy dan konfigurasi keamanan jaringan Docker telah berjalan sesuai rancangan. 
