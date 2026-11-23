@@ -4,13 +4,13 @@
 ### 2. User-defined bridge network 
 ![](../assets/prak3-2.jpg)
 ### 3. Volume backup dan restore 
-1.	Membuat volume 
+#### 1. Membuat volume 
 ![](../assets/prak3-3.jpg)
-2.	Menjalankan container writer 
+#### 2. Menjalankan container writer
 ![](../assets/prak3-4.jpg)
-3.	Menghapus container writer  
+#### 3. Menghapus container writer
 ![](../assets/prak3-5.jpg)
-4.	Membaca dan Membackup dari Volume 
+#### 4. Membaca dan Membackup dari Volume 
 ![](../assets/prak3-6.jpg)
 ### 4. Compose multi-container Nginx-Flask-PostgreSQL 
 ![](../assets/prak3-7.jpg)
