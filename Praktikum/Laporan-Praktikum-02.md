@@ -1,12 +1,17 @@
 # Bab 2 — Konsep Container dan Instalasi Docker 
 ### 1. Struktur direktori umum Bab 2
-![Hasil Praktikum](images/hasil-praktikum.png)
+![](../assets/prak2-1.jpg)
 ### 2. Instalasi Docker Engine Ubuntu
-![Hasil Praktikum](images/hasil-praktikum.png)
+![](../assets/prak2-2.jpg)
+![](../assets/prak2-3.jpg)
 ### 3. Container Nginx dan Ubuntu interaktif
-![Hasil Praktikum](images/hasil-praktikum.png)
+![](../assets/prak2-4.jpg)
+![](../assets/prak2-5.jpg)
 ### 4. Dockerfile custom web statis 
+![](../assets/prak2-6.jpg)
+![](../assets/prak2-7.jpg)
 ## Verifikasi dan Skenario Pengujian
+![](../assets/prak2-8.jpg)
 ## Analisis :
 Berdasarkan hasil pengujian, container pens-app berhasil berjalan menggunakan image pens-web:1.0 dan dapat diakses melalui port 9090. Hasil docker logs menunjukkan bahwa Nginx berhasil melakukan konfigurasi dan menjalankan worker process. Request GET / menghasilkan status 200 yang menunjukkan bahwa web server dapat memberikan halaman dengan baik. Pemeriksaan network menunjukkan tersedianya network bawaan Docker yaitu bridge, host, dan none, sedangkan tidak terdapat Docker volume yang digunakan oleh container. Dengan demikian, container dan layanan web berjalan sesuai konfigurasi yang telah dibuat.
 ## Evaluasi dan Latihan Mandiri 
