@@ -6,7 +6,7 @@ dan merekam versi komponen.
 
 ## 1. Hasil Praktikum
 
-![Hasil Praktikum](images/Screenshot.png)
+![Hasil Praktikum](images/prak1-1.jpg)
 
 ## 2. Penjelasan Command
 
@@ -27,6 +27,14 @@ cd ~/devsecops-lab
 
 Digunakan untuk berpindah ke direktori
 devsecops-lab sebagai lokasi kerja praktikum.
+
+### 3. Mengecek versi Docker
+
+```bash
+docker version
+```
+
+Digunakan untuk mengecek versi Docker yang terpasang serta memastikan Docker Engine dapat digunakan
 
 ## 3. Command Tambahan
 
