@@ -6,7 +6,7 @@ dan merekam versi komponen.
 
 ## 1. Hasil Praktikum
 
-![Hasil Praktikum](images/prak1-1.jpg)
+![Hasil Praktikum](assets/prak1-1.jpg)
 
 ## 2. Penjelasan Command
 
