@@ -97,6 +97,7 @@ Endpoint tersebut digunakan untuk memastikan bahwa Fluent Bit dapat diakses mela
 Setelah layanan berjalan dan endpoint kesehatan berhasil diperiksa, portal PMB dibuka melalui browser pada alamat berikut:
 http://127.0.0.1:8080
 Portal digunakan untuk mengakses formulir pendaftaran dan melakukan pengujian transaksi pada skenario normal maupun skenario insiden.
+
 ![](../assets/prak6-10.jpg)
 
 Tahap Quick start ini menjadi dasar untuk melanjutkan pengujian skenario normal, skenario insiden timeout, analisis log, serta pengujian buffering dan recovery pada tahap berikutnya.
@@ -108,11 +109,15 @@ Pengujian skenario normal dilakukan menggunakan perintah:
 
 Hasil pengujian menunjukkan bahwa portal PMB siap digunakan dan transaksi pendaftaran berhasil diproses. Data hasil pengujian menunjukkan status VERIFIED, dengan nilai attempt sebesar 1 dan tanpa kode kegagalan.
 Request ID yang tercatat adalah:
-REQ-7ae6af132a124c8faa1d6a89c0473627
+	REQ-7ae6af132a124c8faa1d6a89c0473627
 Hasil ini menunjukkan bahwa pada skenario normal, proses pendaftaran dan verifikasi dapat berjalan sesuai dengan kondisi yang diharapkan.
-3.8	Pengujian Skenario Insiden Timeout
+
+### 8. Pengujian Skenario Insiden Timeout
 Pengujian insiden dilakukan menggunakan perintah:
+```bash
 ./scripts/demo-incident.sh
+```
+![](../assets/prak6-12.jpg)
 
 Pada skenario ini, sistem dikonfigurasi agar proses verifikasi mengalami timeout. Hasil pengujian menunjukkan bahwa transaksi berakhir dengan status FAILED, nilai attempt sebesar 3, dan kode kegagalan VERIFY-TIMEOUT.
 	Request ID insiden adalah:
@@ -121,7 +126,7 @@ Kondisi tersebut menunjukkan bahwa sistem mencatat kegagalan verifikasi setelah 
 
 ### 9. Analisis Log Insiden
 Analisis dilakukan dengan memeriksa data log pada database log serta data transaksi pada database aplikasi. Penelusuran menggunakan request ID memungkinkan aktivitas yang berkaitan dengan satu transaksi ditemukan dan disusun berdasarkan urutan waktu.
-![](../assets/prak6-12.jpg)
+![](../assets/prak6-13.jpg)
 
 Hasil analisis terhadap request ID insiden menunjukkan urutan kejadian berikut:
 | Urutan | Layanan             | Event                  | Severity |
@@ -133,12 +138,14 @@ Hasil analisis terhadap request ID insiden menunjukkan urutan kejadian berikut:
 | 5      | verification-worker | verification_retry     | WARN     |
 | 6      | verification-worker | verification_retry     | WARN     |
 | 7      | verification-worker | dependency_timeout     | ERROR    |
+
 Log tersebut memperlihatkan bahwa permintaan pendaftaran diterima, proses verifikasi dimulai, kemudian terjadi tiga kejadian retry sebelum muncul error dependency_timeout dengan kode VERIFY-TIMEOUT.
 Pengelompokan log berdasarkan severity juga menunjukkan adanya catatan WARN dan ERROR. Dengan demikian, log terpusat dapat digunakan untuk memahami urutan kejadian dan membantu mengidentifikasi penyebab kegagalan dalam skenario pengujian.
 
 ### 10. Pemeriksaan Keamanan Log
 Pemeriksaan keamanan dilakukan dengan mencari pola teks yang berpotensi menunjukkan informasi sensitif, seperti password, authorization, bearer token, cookie, session secret, dan API key.
-![](../assets/prak6-13.jpg)
+
+![](../assets/prak6-14.jpg)
 
 Hasil query pemeriksaan menunjukkan bahwa tidak ada baris log yang cocok dengan pola pencarian tersebut.
 Hasil ini menunjukkan bahwa pemeriksaan terhadap pola secret yang ditentukan tidak menemukan indikasi kebocoran informasi sensitif. Namun, hasil kosong tidak dapat dijadikan jaminan mutlak bahwa semua jenis informasi sensitif telah terdeteksi atau tidak ada dalam log.
@@ -148,18 +155,19 @@ Pengujian buffering dan recovery bertujuan mengamati perilaku pengiriman log ket
 #### 1 Mencatat Jumlah Log Awal
 Sebelum database log dihentikan, dilakukan query untuk menghitung jumlah record pada tabel logs.fluentbit.
 Hasil penghitungan awal adalah 726 record.
-![](../assets/prak6-14.jpg)
+
+![](../assets/prak6-15.jpg)
 
 #### 2. Menghentikan Database Log
 Database log dihentikan sementara menggunakan perintah:
 docker compose stop log-db
-![](../assets/prak6-15.jpg)
-
-Setelah container berhenti, formulir pendaftaran baru dikirim melalui portal PMB. 
 ![](../assets/prak6-16.jpg)
 
-Portal memberikan respons bahwa pendaftaran diterima dan menunggu verifikasi. Data pendaftaran baru juga ditemukan pada tabel transaksi aplikasi.
+Setelah container berhenti, formulir pendaftaran baru dikirim melalui portal PMB. 
 ![](../assets/prak6-17.jpg)
+
+Portal memberikan respons bahwa pendaftaran diterima dan menunggu verifikasi. Data pendaftaran baru juga ditemukan pada tabel transaksi aplikasi.
+![](../assets/prak6-18.jpg)
 
 Hal tersebut menunjukkan bahwa proses penerimaan pendaftaran tetap berjalan meskipun database log sedang tidak tersedia.
 
@@ -168,10 +176,10 @@ Log Fluent Bit diperiksa menggunakan perintah:
 ```bash
 docker compose logs --tail 100 fluent-bit
 ```
-![](../assets/prak6-18.jpg)
+![](../assets/prak6-19.jpg)
 
 Hasilnya menunjukkan pesan kesalahan koneksi ke host log-db, disertai pesan failed to flush chunk dan retry in 10 seconds.
-![](../assets/prak6-19.jpg)
+![](../assets/prak6-20.jpg)
 
 Pesan tersebut menunjukkan bahwa Fluent Bit tidak dapat mengirim kumpulan log ketika database log tidak tersedia dan menjadwalkan percobaan ulang setelah 10 detik. Dengan demikian, mekanisme retry teramati bekerja selama gangguan.
 
@@ -180,7 +188,7 @@ Database log diaktifkan kembali menggunakan perintah:
 ```bash
 docker compose start log-db
 ```
-![](../assets/prak6-20.jpg)
+![](../assets/prak6-21.jpg)
 
 Pemeriksaan dengan docker compose ps log-db menunjukkan bahwa container kembali berjalan dengan status healthy.
 Selanjutnya, jumlah record log diperiksa kembali. Hasil penghitungan menunjukkan:
@@ -198,7 +206,7 @@ Setelah pengujian selesai, validasi dilakukan kembali menggunakan perintah:
 ```bash
 ./scripts/verify.sh
 ```
-![](../assets/prak6-21.jpg)
+![](../assets/prak6-22.jpg)
 
 Hasil pemeriksaan akhir adalah sebagai berikut:
 | Pemeriksaan          | Hasil                                        |
@@ -214,10 +222,10 @@ Bukti praktikum kemudian dikumpulkan menggunakan perintah:
 ```bash
 ./scripts/collect-evidence.sh
 ```
-![](../assets/prak6-22.jpg)
+![](../assets/prak6-23.jpg)
 
 Skrip menghasilkan pesan [PASS] Evidence dibuat di direktori reports/. File .env tidak disertakan.
-![](../assets/prak6-23.jpg)
+![](../assets/prak6-24.jpg)
 
 Direktori reports/ berisi lima berkas berikut:
 1. compose-ps.txt
